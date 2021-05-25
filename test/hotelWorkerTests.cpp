@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "../src/hotel_worker.h"
+#include <sstream>
 
 TEST(HotelWorker, constructor) {
     HotelWorker marek;
@@ -10,5 +11,6 @@ TEST(HotelWorker, constructor) {
 TEST(HotelWorker, setFirstName) {
     HotelWorker marek;
 
-    EXPECT_EQ(marek.getSalary(), -1);
+    marek.setFirstName("Marek");
+    EXPECT_EQ(marek.getFirstName(), "Marek");
 }

@@ -1,6 +1,7 @@
-#include "src/hotel_worker.h"
+#include "src/test.h"
 
 int main() {
-	HotelWorker worker;
+	Test test;
+	test.main();
 	return 0;
 }
