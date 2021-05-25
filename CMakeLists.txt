@@ -8,6 +8,6 @@ set(SOURCES main.cpp)
 add_executable(SeasideHotel ${SOURCES})
 
 add_subdirectory(src)
-target_link_libraries(${PROJECT_NAME} core)
-
 add_subdirectory(test)
+
+target_link_libraries(${PROJECT_NAME} core)
