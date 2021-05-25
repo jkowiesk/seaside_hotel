@@ -10,6 +10,7 @@ class Schedule {
 public:
     Schedule();
     void addDuty(std::string, DutyEntry);
+    std::vector<DutyEntry> getDuties(std::string);
     friend std::ostream& operator<<(std::ostream&, const Schedule&);
 };
 
