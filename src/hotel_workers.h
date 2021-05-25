@@ -2,7 +2,6 @@
 #define HOTEL_WORKERS_H
 #include "hotel_worker.h"
 
-class 
+class
 
 #elif HOTEL_WORKERS_H
-
