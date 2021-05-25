@@ -7,6 +7,18 @@ DutyEntry::DutyEntry(const unsigned newHour, const unsigned int newMintues, cons
     duty = newDuty;
 }
 
+inline unsigned int DutyEntry::getHour() {
+    return hour;
+}
+
+inline unsigned int DutyEntry::getMinutes() {
+    return minutes;
+}
+
+inline std::string DutyEntry::getDuty() {
+    return duty;
+}
+
 bool DutyEntry::operator <(const DutyEntry& dutyEntry) {
     bool isEarlierSameHour = (hour == dutyEntry.hour && minutes < dutyEntry.minutes) ? true : false;
 

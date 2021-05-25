@@ -22,7 +22,7 @@ namespace io {
         std::string input;
         int value;
         std::cin >> value;
-        while (!std::cin || value < 0) {
+        while (!std::cin) {
             std::cout << "Wrong value.\n";
             clearInputStream(input);
             std::cin >> value;
@@ -37,7 +37,7 @@ namespace io {
         std::string input;
         long double value;
         std::cin >> value;
-        while (!std::cin || value < 0) {
+        while (!std::cin) {
             std::cout << "Wrong value.\n";
             clearInputStream(input);
             std::cin >> value;

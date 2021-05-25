@@ -5,7 +5,6 @@
 
 Schedule::Schedule() {
     std::vector<DutyEntry> emptyVector;
-
     scheduleMap = {
             {"Monday", emptyVector},
             {"Tuesday", emptyVector},
@@ -32,16 +31,23 @@ void Schedule::addDuty(const std::string day, DutyEntry dutyEntry) {
     }
 }
 
+std::vector<DutyEntry> Schedule::getDuties(std::string day) {
+    return scheduleMap.at(day);
+}
+
 std::ostream& operator<<(std::ostream& os,const Schedule& schedule) {
-    std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
-    for (const auto& kv : schedule.scheduleMap) {
-        std::cout << kv.first << ")";
-        for (auto duty : kv.second) {
-            std::cout << "\t" << duty;
-        }
-        std::cout << std::endl;
+    std::vector<std::string> weekDays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+    os << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+
+    for (const auto& weekDay : weekDays) {
+        os << weekDay << ")";
+            for (const auto& duty : schedule.scheduleMap.at(weekDay)) {
+                os << "\t" << duty;
+            }
+            os << std::endl;
     }
-    std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
+    os << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 
     return os;
 }
