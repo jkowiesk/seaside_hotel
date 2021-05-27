@@ -3,26 +3,6 @@
 #include <algorithm>
 #include "hotel_guest.h"
 
-//Room
-Room::Room(int a) {
-    number = a;
-}
-//operators overload
-bool Room::operator==(Room &a) {
-    if(a.number == number) {
-        return true;
-    } else {
-        return false;
-    }
-}
-bool Room::operator!=(Room &a) {
-    if(a.number != number) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 //setters and getters for Document class
 void Document::set_name(std::string new_name) {
     name = new_name;
@@ -118,16 +98,19 @@ void Guest::set_document(Document new_document){
 Document Guest::get_document() {
     return document;
 }
-void Guest::set_check_in(float hour) {
-    check_in = hour;
+void Guest::set_check_in(int hour) {
+    if(hour > 0 && hour <= 24) {
+        check_in = hour;
+    }
 }
-float Guest::get_check_in() {
+int Guest::get_check_in() {
     return check_in;
 }
-void Guest::set_check_out(float hour) {
-    check_out = hour;
+void Guest::set_check_out(int hour) {
+    if(hour > 0 && hour <= 24) {
+        check_in = hour;
 }
-float Guest::get_check_out() {
+int Guest::get_check_out() {
     return check_out;
 }
 Booked_rooms Guest::get_booked_rooms() {
@@ -144,4 +127,4 @@ Guest::Guest(std::string a, std::string b, float c, float d, Document e, Booked_
 }
 
 
-//Bartosz Kosiński
+//Bartosz Kosinski
