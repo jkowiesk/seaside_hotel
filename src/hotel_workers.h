@@ -5,11 +5,44 @@
 class Waiter : virtual public HotelWorker {
 public:
     Waiter() {
-        HotelWorker("","", "", -1, 1);
+        HotelWorker("","", "Waiter", 1500, 1);
         addEveryDayDutyToSchedule(7, 30, "Clean tables");
-        addDutyToSchedule("Friday", 18, 20, "Get paycheck");
+        addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
     }
 
 };
+
+class Cook : virtual public HotelWorker {
+public:
+    Cook() {
+        HotelWorker("","", "Cook", 3000, 2);
+        addEveryDayDutyToSchedule(7, 30, "Check freshness of food");
+        addEveryDayDutyToSchedule(8, 0, "Preheat oven");
+        addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
+    }
+
+};
+
+class Receptionists : virtual public HotelWorker {
+public:
+    Receptionists() {
+        HotelWorker("","", "Receptionists", 2500, 3);
+        addEveryDayDutyToSchedule(8, 0, "Start work on reception");
+        addDutyToSchedule("Monday", 15, 00, "Check if all rooms have keys");
+        addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
+    }
+
+};
+
+class Maid : virtual public HotelWorker {
+public:
+    Maid() {
+        HotelWorker("","", "Maid", 1000, 1);
+        addEveryDayDutyToSchedule(6, 0, "Start cleaning");
+        addDutyToSchedule("Sunday", 18, 00, "Order new detergents");
+    }
+
+};
+
 
 #endif //HOTEL_WORKERS_H
