@@ -42,10 +42,13 @@ std::ostream& operator<<(std::ostream& os,const Schedule& schedule) {
 
     for (const auto& weekDay : weekDays) {
         os << weekDay << ")";
-            for (const auto& duty : schedule.scheduleMap.at(weekDay)) {
-                os << "\t" << duty;
-            }
-            os << std::endl;
+        if (weekDay == "Monday" || weekDay == "Friday" || weekDay == "Sunday")
+            os << "\t";
+
+        for (const auto& duty : schedule.scheduleMap.at(weekDay)) {
+            os << "\t" << duty;
+        }
+        os << std::endl;
     }
     os << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 

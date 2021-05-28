@@ -2,15 +2,6 @@
 #include <iostream>
 #include <string>
 
-HotelWorker::HotelWorker() {
-    firstName = "";
-    lastName = "";
-    position = "";
-    salary = -1;
-    permissionLevel = -1;
-
-}
-
 // set methods
 void HotelWorker::setFirstName(const std::string& newFirstName) {
     firstName = newFirstName;
@@ -70,6 +61,14 @@ void HotelWorker::addDutyToSchedule(std::string day, const unsigned int hour, co
     schedule.addDuty(day, DutyEntry(hour, minutes, duty));
 }
 
+void HotelWorker::addEveryDayDutyToSchedule(const unsigned int hour, const unsigned int minutes, std::string duty) {
+    std::vector<std::string> weekDays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+    for (const auto& weekDay : weekDays) {
+        schedule.addDuty(weekDay, DutyEntry(hour, minutes, duty));
+    }
+
+}
 
 std::ostream& operator <<(std::ostream& os, const HotelWorker& worker) {
     if (!worker.firstName.empty())
