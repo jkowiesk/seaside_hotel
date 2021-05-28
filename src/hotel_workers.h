@@ -2,6 +2,14 @@
 #define HOTEL_WORKERS_H
 #include "hotel_worker.h"
 
-class
+class Waiter : virtual public HotelWorker {
+public:
+    Waiter() {
+        HotelWorker("","", "", -1, 1);
+        addEveryDayDutyToSchedule(7, 30, "Clean tables");
+        addDutyToSchedule("Friday", 18, 20, "Get paycheck");
+    }
 
-#elif HOTEL_WORKERS_H
+};
+
+#endif //HOTEL_WORKERS_H
