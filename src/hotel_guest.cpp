@@ -3,26 +3,6 @@
 #include <algorithm>
 #include "hotel_guest.h"
 
-//Room
-Room::Room(int a) {
-    number = a;
-}
-//operators overload
-bool Room::operator==(Room &a) {
-    if(a.number == number) {
-        return true;
-    } else {
-        return false;
-    }
-}
-bool Room::operator!=(Room &a) {
-    if(a.number != number) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 //setters and getters for Document class
 void Document::set_name(std::string new_name) {
     name = new_name;
@@ -42,8 +22,8 @@ Document::Document(std::string x, std::string y) {
     id_number = y;
 }
 //operators overload
-bool Document::operator==(Document &a) {
-    if(a.name == name && a.id_number == id_number) {
+bool Document::operator==(Document &doc) {
+    if(doc.name == name && doc.id_number == id_number) {
         return true;
     } else {
         return false;
@@ -118,23 +98,30 @@ void Guest::set_document(Document new_document){
 Document Guest::get_document() {
     return document;
 }
-void Guest::set_check_in(float hour) {
-    check_in = hour;
+void Guest::set_check_in(int hour) {
+    if(hour > 0 && hour <= 24) {
+        check_in = hour;
+    }
 }
-float Guest::get_check_in() {
+int Guest::get_check_in() {
     return check_in;
 }
-void Guest::set_check_out(float hour) {
-    check_out = hour;
+void Guest::set_check_out(int hour) {
+    if (hour > 0 && hour <= 24) {
+        check_out = hour;
+    }
 }
-float Guest::get_check_out() {
+int Guest::get_check_out() {
     return check_out;
+}
+void Guest::set_booked_rooms(Booked_rooms rooms){
+    booked_rooms = rooms;
 }
 Booked_rooms Guest::get_booked_rooms() {
     return booked_rooms;
 }
 //constructor
-Guest::Guest(std::string a, std::string b, float c, float d, Document e, Booked_rooms f) {
+Guest::Guest(std::string a, std::string b, int c, int d, Document e, Booked_rooms f) {
     name = a;
     surname = b;
     check_in = c;
@@ -144,4 +131,4 @@ Guest::Guest(std::string a, std::string b, float c, float d, Document e, Booked_
 }
 
 
-//Bartosz Kosiński
+//Bartosz Kosinski
