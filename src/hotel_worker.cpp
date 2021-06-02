@@ -86,8 +86,3 @@ std::ostream& operator <<(std::ostream& os, const HotelWorker& worker) {
 
     return os;
 }
-
-
-
-
-

@@ -2,7 +2,7 @@
 #define HOTEL_WORKERS_H
 #include "hotel_worker_api.h"
 
-class Waiter : virtual public HotelWorkerAPI {
+class Waiter : public HotelWorkerAPI {
 public:
     Waiter() {
         HotelWorkerAPI("","", "Waiter", 1500, 1);
@@ -12,7 +12,7 @@ public:
 
 };
 
-class Cook : virtual public HotelWorkerAPI {
+class Cook : public HotelWorkerAPI {
 public:
     Cook() {
         HotelWorkerAPI("","", "Cook", 3000, 2);
@@ -23,7 +23,7 @@ public:
 
 };
 
-class Receptionists : virtual public HotelWorkerAPI {
+class Receptionists : public HotelWorkerAPI {
 public:
     Receptionists() {
         HotelWorkerAPI("","", "Receptionists", 2500, 3);
@@ -34,7 +34,7 @@ public:
 
 };
 
-class Maid : virtual public HotelWorkerAPI {
+class Maid : public HotelWorkerAPI {
 public:
     Maid() {
         HotelWorkerAPI("","", "Maid", 1000, 1);
