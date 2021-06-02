@@ -1,8 +1,12 @@
-#include "src/test.h"
 #include "src/hotel_workers.h"
 
 int main() {
-    Waiter marek;
+    Cook marek;
+    Maid anna;
     marek.printSchedule();
+    anna.printSchedule();
+
+
+
 	return 0;
 }

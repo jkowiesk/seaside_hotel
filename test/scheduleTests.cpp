@@ -16,13 +16,13 @@ TEST(Schedule, print) {
     Schedule schedule;
     const char *msg =
             "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n\
-Monday)\n\
+Monday)\t\n\
 Tuesday)\n\
 Wednesday)\n\
 Thursday)\n\
-Friday)\n\
+Friday)\t\n\
 Saturday)\n\
-Sunday)\n\
+Sunday)\t\n\
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n";
     std::stringstream ss;
     ss << schedule;

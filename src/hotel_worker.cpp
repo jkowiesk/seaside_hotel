@@ -53,21 +53,8 @@ Schedule HotelWorker::getSchedule() {
     return schedule;
 }
 
-void HotelWorker::printSchedule() {
-    std::cout << schedule;
-}
-
 void HotelWorker::addDutyToSchedule(std::string day, const unsigned int hour, const unsigned int minutes, std::string duty) {
     schedule.addDuty(day, DutyEntry(hour, minutes, duty));
-}
-
-void HotelWorker::addEveryDayDutyToSchedule(const unsigned int hour, const unsigned int minutes, std::string duty) {
-    std::vector<std::string> weekDays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-
-    for (const auto& weekDay : weekDays) {
-        schedule.addDuty(weekDay, DutyEntry(hour, minutes, duty));
-    }
-
 }
 
 std::ostream& operator <<(std::ostream& os, const HotelWorker& worker) {
@@ -99,8 +86,3 @@ std::ostream& operator <<(std::ostream& os, const HotelWorker& worker) {
 
     return os;
 }
-
-
-
-
-
