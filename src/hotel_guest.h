@@ -14,7 +14,7 @@ class Document {
         std::string get_id_number();
         Document() {};
         Document(std::string x, std::string y);
-        bool operator==(Document &a);
+        bool operator==(Document &doc);
         bool operator!=(Document &a);
         friend std::ostream& operator<<(std::ostream& stream, const Document& document) {
             stream << "Document name:" << document.name << '\t';
@@ -48,7 +48,6 @@ class Booked_rooms {
         Booked_rooms() {};
         friend std::ostream& operator<<(std::ostream& stream, const Booked_rooms& bookedrooms) {
             int size = bookedrooms.booked_rooms.size();
-            stream << "Booked rooms numbers: ";
             for(int i=0; i < size; i ++) {
                 stream << bookedrooms.booked_rooms[i] << ", ";
             }
@@ -75,18 +74,19 @@ class Guest {
         int get_check_in();
         void set_check_out(int hour);
         int get_check_out();
-        void set_booked_rooms();
+        void set_booked_rooms(Booked_rooms rooms);
         Booked_rooms get_booked_rooms();
-        friend std::ostream& operator<<(std::ostream& stream, const Guest& guest) {
+        friend std::ostream& operator<<(std::ostream& stream, Guest& guest) {
             stream << "Guest name: " << guest.get_name() << std::endl;
             stream << "Guest surname: " << guest.get_surname() << std::endl;
             stream << "Guest document: " << guest.get_document() << std::endl;
             stream << "Guest check in hour: " << guest.get_check_in() << std::endl;
             stream << "Guest check out hour: " << guest.get_check_out() << std::endl;
-            stream << "Guest booked rooms numbers: " << guest.get_booked_rooms() << std:: endl;
+            stream << "Guest booked rooms numbers: " << guest.get_booked_rooms() << std::endl;
+            return stream;
         }
         Guest() {};
-        Guest(std::string a, std::string b, float c, float d, Document e, Booked_rooms f);
+        Guest(std::string a, std::string b, int c, int d, Document e, Booked_rooms f);
         Guest(const Guest& other)
         : name(other.name), surname(other.surname){}
 };

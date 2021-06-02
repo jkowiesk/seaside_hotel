@@ -22,8 +22,8 @@ Document::Document(std::string x, std::string y) {
     id_number = y;
 }
 //operators overload
-bool Document::operator==(Document &a) {
-    if(a.name == name && a.id_number == id_number) {
+bool Document::operator==(Document &doc) {
+    if(doc.name == name && doc.id_number == id_number) {
         return true;
     } else {
         return false;
@@ -107,17 +107,21 @@ int Guest::get_check_in() {
     return check_in;
 }
 void Guest::set_check_out(int hour) {
-    if(hour > 0 && hour <= 24) {
-        check_in = hour;
+    if (hour > 0 && hour <= 24) {
+        check_out = hour;
+    }
 }
 int Guest::get_check_out() {
     return check_out;
+}
+void Guest::set_booked_rooms(Booked_rooms rooms){
+    booked_rooms = rooms;
 }
 Booked_rooms Guest::get_booked_rooms() {
     return booked_rooms;
 }
 //constructor
-Guest::Guest(std::string a, std::string b, float c, float d, Document e, Booked_rooms f) {
+Guest::Guest(std::string a, std::string b, int c, int d, Document e, Booked_rooms f) {
     name = a;
     surname = b;
     check_in = c;
