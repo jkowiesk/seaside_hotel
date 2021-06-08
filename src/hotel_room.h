@@ -4,18 +4,19 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "hotel_guest.h"
 
-class Guest
-{
-    std::string name;
-public:
-    friend
-    std::ostream& operator<< (std::ostream &os, const Guest g)
-    {
-        os << "Guest name: " << g.name;
-        return os;
-    }
-};
+//class Guest
+//{
+//    std::string name;
+//public:
+//    friend
+//    std::ostream& operator<< (std::ostream &os, const Guest g)
+//    {
+//        os << "Guest name: " << g.name;
+//        return os;
+//    }
+//};
 
 
 class HotelRoom
@@ -42,11 +43,11 @@ public:
     std::vector<Equipment> getEquipment();
     void printEquipment();
     void addEquipment(Equipment newEq);
-    void removeEquipment();
+    void removeEquipment(int choice);
     std::vector<Guest> getGuests();
     void printGuests();
     void addGuest(Guest newGuest);
-    void removeGuest();
+    void removeGuest(int choice);
 
     friend
     std::ostream& operator<< (std::ostream &os, const HotelRoom room);
