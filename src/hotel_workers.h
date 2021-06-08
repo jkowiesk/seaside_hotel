@@ -2,7 +2,7 @@
 #define HOTEL_WORKERS_H
 #include "hotel_worker.h"
 
-class Waiter : virtual public HotelWorker {
+class Waiter : public HotelWorker {
 public:
     Waiter() {
         HotelWorker("","", "Waiter", 1500, 1);
@@ -12,7 +12,7 @@ public:
 
 };
 
-class Cook : virtual public HotelWorker {
+class Cook : public HotelWorker {
 public:
     Cook() {
         HotelWorker("","", "Cook", 3000, 2);
@@ -23,7 +23,7 @@ public:
 
 };
 
-class Receptionists : virtual public HotelWorker {
+class Receptionists : public HotelWorker {
 public:
     Receptionists() {
         HotelWorker("","", "Receptionists", 2500, 3);
@@ -34,7 +34,7 @@ public:
 
 };
 
-class Maid : virtual public HotelWorker {
+class Maid : public HotelWorker {
 public:
     Maid() {
         HotelWorker("","", "Maid", 1000, 1);
