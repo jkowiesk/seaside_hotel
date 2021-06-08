@@ -31,10 +31,10 @@ public:
     Schedule getSchedule();
 
     void addDutyToSchedule(std::string, const unsigned int, const unsigned int, std::string);
+    void addEveryDayDutyToSchedule(const unsigned int hour, const unsigned int minutes, std::string duty);
 
 
-
-
+    void printSchedule();
     friend std::ostream& operator<<(std::ostream&, const HotelWorker&);
 
 

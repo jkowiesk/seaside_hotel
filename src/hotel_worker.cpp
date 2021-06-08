@@ -57,6 +57,19 @@ void HotelWorker::addDutyToSchedule(std::string day, const unsigned int hour, co
     schedule.addDuty(day, DutyEntry(hour, minutes, duty));
 }
 
+void HotelWorker::addEveryDayDutyToSchedule(const unsigned int hour, const unsigned int minutes, std::string duty) {
+    std::vector<std::string> weekDays{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+    for (const auto &weekDay : weekDays) {
+        addDutyToSchedule(weekDay, hour, minutes, duty);
+    }
+}
+
+void HotelWorker::printSchedule() {
+    std::cout << schedule;
+}
+
+
 std::ostream& operator <<(std::ostream& os, const HotelWorker& worker) {
     if (!worker.firstName.empty())
         os << "First Name: " << worker.firstName << "\n";

@@ -1,21 +1,21 @@
 #ifndef HOTEL_WORKERS_H
 #define HOTEL_WORKERS_H
-#include "hotel_worker_api.h"
+#include "hotel_worker.h"
 
-class Waiter : public HotelWorkerAPI {
+class Waiter : public HotelWorker {
 public:
     Waiter() {
-        HotelWorkerAPI("","", "Waiter", 1500, 1);
+        HotelWorker("","", "Waiter", 1500, 1);
         addEveryDayDutyToSchedule(7, 30, "Clean tables");
         addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
     }
 
 };
 
-class Cook : public HotelWorkerAPI {
+class Cook : public HotelWorker {
 public:
     Cook() {
-        HotelWorkerAPI("","", "Cook", 3000, 2);
+        HotelWorker("","", "Cook", 3000, 2);
         addEveryDayDutyToSchedule(7, 30, "Check freshness of food");
         addEveryDayDutyToSchedule(8, 0, "Preheat oven");
         addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
@@ -23,10 +23,10 @@ public:
 
 };
 
-class Receptionists : public HotelWorkerAPI {
+class Receptionists : public HotelWorker {
 public:
     Receptionists() {
-        HotelWorkerAPI("","", "Receptionists", 2500, 3);
+        HotelWorker("","", "Receptionists", 2500, 3);
         addEveryDayDutyToSchedule(8, 0, "Start work on reception");
         addDutyToSchedule("Monday", 15, 00, "Check if all rooms have keys");
         addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
@@ -34,13 +34,12 @@ public:
 
 };
 
-class Maid : public HotelWorkerAPI {
+class Maid : public HotelWorker {
 public:
     Maid() {
-        HotelWorkerAPI("","", "Maid", 1000, 1);
+        HotelWorker("","", "Maid", 1000, 1);
         addEveryDayDutyToSchedule(6, 0, "Start cleaning");
-        addDutyToSchedule("Saturday", 12, 00, "Order new detergents");
-        addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
+        addDutyToSchedule("Sunday", 18, 00, "Order new detergents");
     }
 
 };
