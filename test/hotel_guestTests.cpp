@@ -1,5 +1,5 @@
-#include <gtest\gtest.h>
-#include "..\src\hotel_guest.h"
+#include <gtest/gtest.h>
+#include "../src/hotel_guest.h"
 #include <sstream>
 
 TEST(Geust, set_name) {
