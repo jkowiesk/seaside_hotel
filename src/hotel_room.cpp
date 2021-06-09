@@ -65,12 +65,12 @@ void HotelRoom::addEquipment(Equipment newEq)
 {
     equipmentList.push_back(newEq);
 }
-void HotelRoom::removeEquipment()
+void HotelRoom::removeEquipment(int choice)
 {
-    // numbers shoudl be printed by other method beforehand
-    std::cout << "Choose the number of equipment you want to remove: ";
-    int choice;
-    std::cin >> choice;
+//    // numbers shoudl be printed by other method beforehand
+//    std::cout << "Choose the number of equipment you want to remove: ";
+//    int choice;
+//    std::cin >> choice;
     while(std::cin.fail() | choice < 1 | choice > equipmentList.size())
     {
         std::cout << "Wrong input. Choose equipment from the list. ";
@@ -110,12 +110,12 @@ void HotelRoom::addGuest(Guest newGuest)
         std::cout << "This room is full!" << std::endl;
     }
 }
-void HotelRoom::removeGuest()
+void HotelRoom::removeGuest(int choice)
 {
-    printGuests();
-    std::cout << "Choose the number of guest you want to remove: ";
-    int choice;
-    std::cin >> choice;
+//    printGuests();
+//    std::cout << "Choose the number of guest you want to remove: ";
+//    int choice;
+//    std::cin >> choice;
     while(std::cin.fail() | choice < 1 | choice > guestList.size())
     {
         std::cout << "Wrong input. Choose a guest from the list. ";
