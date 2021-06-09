@@ -19,10 +19,11 @@ void HotelRoom::setSlots(int newSlots)
 {
     slots = newSlots;
 }
-void HotelRoom::emptySlots()
+int HotelRoom::emptySlots()
 {
     int empty = slots - guestList.size();
-    std::cout << "This HotelRoom has " << empty << " slots left." << std::endl;
+    return empty;
+    //std::cout << "This HotelRoom has " << empty << " slots left." << std::endl;
 }
 
 int HotelRoom::getFloor()
@@ -123,7 +124,7 @@ void HotelRoom::removeGuest(int choice)
         std::cin.ignore(1000,'\n');
         std::cin >> choice;
     }
-    guestList.erase (guestList.begin() + choice -1);
+    guestList.erase (guestList.begin() + choice);
 }
 
 

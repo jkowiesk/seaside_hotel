@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <vector>
+#include "hotel_room.h"
 #ifndef HOTEL_GUEST_
 #define HOTEL_GUEST_
 
@@ -56,14 +57,17 @@ class Booked_rooms {
 };
 
 class Guest {
-    public:
         std::string name;
         std::string surname;
         int check_in;
         int check_out;
+        int visitLength;
+        int visitTime=0;
         double concession=1;
         Document document;
         Booked_rooms booked_rooms;
+    public:
+        HotelRoom* bookedRoom;
         void set_name(std::string new_name);
         void set_surname(std::string new_surname);
         std::string get_name();
@@ -76,17 +80,21 @@ class Guest {
         int get_check_out();
         void set_booked_rooms(Booked_rooms rooms);
         Booked_rooms get_booked_rooms();
+        int get_visitLength() {return visitLength;}
+        void dayPassed() {visitTime++;}
+        bool visitEnded() {visitLength-visitTime==0 ? true : false;}
+        void set_visitLength(int period);
         friend std::ostream& operator<<(std::ostream& stream, Guest& guest) {
             stream << "Guest name: " << guest.get_name() << std::endl;
             stream << "Guest surname: " << guest.get_surname() << std::endl;
-            stream << "Guest document: " << guest.get_document() << std::endl;
-            stream << "Guest check in hour: " << guest.get_check_in() << std::endl;
-            stream << "Guest check out hour: " << guest.get_check_out() << std::endl;
-            stream << "Guest booked rooms numbers: " << guest.get_booked_rooms() << std::endl;
+            // stream << "Guest document: " << guest.get_document() << std::endl;
+            // stream << "Guest check in hour: " << guest.get_check_in() << std::endl;
+            // stream << "Guest check out hour: " << guest.get_check_out() << std::endl;
+            // stream << "Guest booked rooms numbers: " << guest.get_booked_rooms() << std::endl;
             return stream;
         }
         Guest() {};
-        Guest(std::string a, std::string b, int c, int d, Document e, Booked_rooms f);
+        Guest(std::string nname, std::string nsurname) : name(nname), surname(nsurname) {}
         Guest(const Guest& other)
         : name(other.name), surname(other.surname){}
 };

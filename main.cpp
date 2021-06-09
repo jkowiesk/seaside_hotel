@@ -6,7 +6,5 @@ int main() {
     marek.printSchedule();
     anna.printSchedule();
 
-
-
 	return 0;
 }

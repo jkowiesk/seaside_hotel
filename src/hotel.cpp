@@ -1,15 +1,19 @@
 #include "hotel.h"
 #include "hotel_room.h"
+#include "hotel_guest.h"
 #include <cmath>
 
-void Hotel::createRooms(int hotelSize) {
-    std::cout << "Created x rooms." << std::endl;
+void Hotel::createRooms(int roomArray[]) {
+    // roomArr[2, 3, 4, 1, 2, 5, 2, 5, 2]
+    for (int i=0; i < ; i++)
+    {
+
+    }
 }
 int Hotel::addGuests(int guestsNumber) {
     if(guestsNumber==1){
         SingleRoom room1(rand()%100, rand()%10, rand()%30+10);
-        Guest guest1;
-        room1.addGuest(guest1);
+        room1.addGuest(Guest("Andrzej", "Zalew"));
         return room1.getNumber();
 
     }
@@ -39,5 +43,5 @@ double Hotel::calculateDailyCost(HotelRoom room)
 double Hotel::calculateVisitCost(HotelRoom room, Guest guest)
 {
     double dayCost = calculateDailyCost(room);
-    //return guest.visitLength * dayCost;
+    return guest.get_visitLength() * dayCost;
 }

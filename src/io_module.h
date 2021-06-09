@@ -2,15 +2,11 @@
 #define IO_MODULE_PY_H
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <utility> //dupa du
+#include <limits>
 
 namespace io {
-    bool isNumber(std::string str) {
-        for (auto ch : str) {
-            if (isdigit(ch))
-                return true;
-        }
-        return false;
-    }
 
     void clearInputStream(std::string str) {
 
@@ -22,7 +18,7 @@ namespace io {
         std::string input;
         int value;
         std::cin >> value;
-        while (!std::cin) {
+        while (!std::cin || value < 0) {
             std::cout << "Wrong value.\n";
             clearInputStream(input);
             std::cin >> value;
@@ -33,34 +29,21 @@ namespace io {
 
     }
 
-    long double getLongDouble() {
-        std::string input;
-        long double value;
-        std::cin >> value;
-        while (!std::cin) {
-            std::cout << "Wrong value.\n";
-            clearInputStream(input);
-            std::cin >> value;
+    std::vector<std::pair<std::string, std::string>> getNames(std::string fileName, int numberOfNames = INT_MAX) {
+        std::ifstream cif;
+        std::string name;
+        std::vector<std::pair<std::string, std::string>> names;
+        cif.open(fileName);
+        for (int i = 0; i < numberOfNames; i++) {
+            if (cif >> name)
+                names.push_back(std::make_pair(firstName, lastName));
+            else
+                break;
         }
-        clearInputStream(input);
 
-        return value;
-
+        return names;
     }
 
-    std::string getString() {
-        std::string input;
-        std::cin >> input;
-        while (!std::cin || isNumber(input)) {
-            std::cout << "Wrong value.\n";
-            clearInputStream(input);
-            std::cin >> input;
-        }
-        clearInputStream(input);
-
-        return input;
-
-    }
 }
 
 
