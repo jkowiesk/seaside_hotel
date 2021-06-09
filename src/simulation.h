@@ -8,7 +8,7 @@
 #include <vector>
 #include <sstream>
 
-class Test {
+class Simulation {
 
     void getParams();
     void promptMsg(std::string);

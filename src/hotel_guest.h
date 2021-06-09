@@ -67,7 +67,7 @@ class Guest {
         Document document;
         Booked_rooms booked_rooms;
     public:
-        HotelRoom* bookedRoom;
+        //HotelRoom* bookedRoom;
         void set_name(std::string new_name);
         void set_surname(std::string new_surname);
         std::string get_name();

@@ -6,7 +6,7 @@
 #include <vector>
 #include <sstream>
 
-void Test::init() {
+void Simulation::init() {
     int temp = 24 / busyness;
     ranges.push_back(0);
     for (int i = temp; i <= 24; i += temp) {
@@ -33,20 +33,20 @@ void Test::init() {
     hotel.createRooms(rooms);
     hotel.hireWorkers(io::getNames("workerList.txt"));
 }
-void Test::randomize(int maxInt) {
+void Simulation::randomize(int maxInt) {
     std::default_random_engine generator;
     std::uniform_int_distribution<int> distribution(1, maxInt);
     rand = distribution(generator);
 }
 
-int Test::randomizeInstant(int minInt, int maxInt) {
+int Simulation::randomizeInstant(int minInt, int maxInt) {
     std::default_random_engine generator;
     std::uniform_int_distribution<int> distribution(minInt, maxInt);
     int num = distribution(generator);
     return num;
 }
 
-std::vector<int> Test::generateHours() {
+std::vector<int> Simulation::generateHours() {
     std::vector<int> hours;
     for (int i = 0; i < ranges.size()-1; i++) {
         hours.push_back(randomizeInstant(ranges[i], ranges[i+1]));
@@ -54,11 +54,11 @@ std::vector<int> Test::generateHours() {
     return hours;
 }
 
-void Test::cleanSstream() {
+void Simulation::cleanSstream() {
     ss.str(std::string());
 }
 
-void Test::addGuest() {
+void Simulation::addGuest() {
     hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex()].first, guestNames[hotel.getGuestsIndex()].second));
     ss << guestNames[hotel.getGuestsIndex()].first << " " << guestNames[hotel.getGuestsIndex()].second << " registered";
 
@@ -66,7 +66,7 @@ void Test::addGuest() {
     cleanSstream();
 }
 
-void Test::getParams() {
+void Simulation::getParams() {
     promptMsg("Type number of days to simulate:");
     numberOfDays = io::getInt();
 
@@ -78,11 +78,11 @@ void Test::getParams() {
 
 }
 
-void Test::promptMsg(std::string msg) {
+void Simulation::promptMsg(std::string msg) {
     std::cout << msg << std::endl;
 }
 
-void Test::printDay(int day, std::string msg) {
+void Simulation::printDay(int day, std::string msg) {
     std::cout << msg << " " << day << ":" << std::endl;
     ss << msg << " " << day << ":" << std::endl;
 
@@ -90,7 +90,7 @@ void Test::printDay(int day, std::string msg) {
     cleanSstream();
 }
 
-void Test::printTask(unsigned int hour, std::string msg) {
+void Simulation::printTask(unsigned int hour, std::string msg) {
     std::cout << hour << ":00 "<< msg << std::endl;
     ss << hour << ":00 " << msg < "\n";
 
@@ -98,7 +98,7 @@ void Test::printTask(unsigned int hour, std::string msg) {
     cleanSstream();
 }
 
-void Test::printDuty(DutyEntry duty) {
+void Simulation::printDuty(DutyEntry duty) {
     std::cout << duty << std::endl;
     ss << duty << "\n";
 
@@ -106,7 +106,7 @@ void Test::printDuty(DutyEntry duty) {
     cleanSstream();
 }
 
-void Test::doTask() {
+void Simulation::doTask() {
     switch (rand) {
         case 1:
             hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex()].first, guestNames[hotel.getGuestsIndex()].second));
@@ -133,7 +133,7 @@ void Test::doTask() {
     return ss.str(); // czemu to jest w ogole zwracane?
 }
 
-void Test::run() {
+void Simulation::run() {
     int i;
     for (int day = 1; day < numberOfDays; day++) {
         printMsg(day, "Day");
@@ -157,11 +157,11 @@ void Test::run() {
 
 }
 
-void Test::greetUser() {
+void Simulation::greetUser() {
     std::cout << "||| Welcome to Seaside Hotel !!! |||\n";
 }
 
-void Test::main() {
+void Simulation::main() {
     greetUser();
     getParams();
     init();

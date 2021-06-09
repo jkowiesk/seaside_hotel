@@ -1,10 +1,8 @@
 #include "src/hotel_workers.h"
+#include "src/simulation.h"
 
 int main() {
-    Cook marek;
-    Maid anna;
-    marek.printSchedule();
-    anna.printSchedule();
-
+    Simulation sim;
+    sim.main();
 	return 0;
 }
