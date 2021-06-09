@@ -2,15 +2,6 @@
 #include <iostream>
 #include <string>
 
-HotelWorker::HotelWorker() {
-    firstName = "";
-    lastName = "";
-    position = "";
-    salary = -1;
-    permissionLevel = -1;
-
-}
-
 // set methods
 void HotelWorker::setFirstName(const std::string& newFirstName) {
     firstName = newFirstName;
@@ -62,12 +53,20 @@ Schedule HotelWorker::getSchedule() {
     return schedule;
 }
 
-void HotelWorker::printSchedule() {
-    std::cout << schedule;
-}
-
 void HotelWorker::addDutyToSchedule(std::string day, const unsigned int hour, const unsigned int minutes, std::string duty) {
     schedule.addDuty(day, DutyEntry(hour, minutes, duty));
+}
+
+void HotelWorker::addEveryDayDutyToSchedule(const unsigned int hour, const unsigned int minutes, std::string duty) {
+    std::vector<std::string> weekDays{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+    for (const auto &weekDay : weekDays) {
+        addDutyToSchedule(weekDay, hour, minutes, duty);
+    }
+}
+
+void HotelWorker::printSchedule() {
+    std::cout << schedule;
 }
 
 
@@ -100,8 +99,3 @@ std::ostream& operator <<(std::ostream& os, const HotelWorker& worker) {
 
     return os;
 }
-
-
-
-
-

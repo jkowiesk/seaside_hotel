@@ -23,7 +23,10 @@ void Schedule::addDuty(const std::string day, DutyEntry dutyEntry) {
         while (*it < dutyEntry)
             it++;
 
-        scheduleMap[day].insert(it, dutyEntry);
+        if (it - scheduleMap[day].begin() == scheduleMap[day].size() + 1)
+            scheduleMap[day].push_back(dutyEntry);
+        else
+            scheduleMap[day].insert(it, dutyEntry);
 
     } else {
         scheduleMap[day].push_back(dutyEntry);
@@ -42,10 +45,13 @@ std::ostream& operator<<(std::ostream& os,const Schedule& schedule) {
 
     for (const auto& weekDay : weekDays) {
         os << weekDay << ")";
-            for (const auto& duty : schedule.scheduleMap.at(weekDay)) {
-                os << "\t" << duty;
-            }
-            os << std::endl;
+        if (weekDay == "Monday" || weekDay == "Friday" || weekDay == "Sunday")
+            os << "\t";
+
+        for (const auto& duty : schedule.scheduleMap.at(weekDay)) {
+            os << "\t" << duty;
+        }
+        os << std::endl;
     }
     os << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 

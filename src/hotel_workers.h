@@ -2,6 +2,47 @@
 #define HOTEL_WORKERS_H
 #include "hotel_worker.h"
 
-class
+class Waiter : public HotelWorker {
+public:
+    Waiter() {
+        HotelWorker("","", "Waiter", 1500, 1);
+        addEveryDayDutyToSchedule(7, 30, "Clean tables");
+        addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
+    }
 
-#elif HOTEL_WORKERS_H
+};
+
+class Cook : public HotelWorker {
+public:
+    Cook() {
+        HotelWorker("","", "Cook", 3000, 2);
+        addEveryDayDutyToSchedule(7, 30, "Check freshness of food");
+        addEveryDayDutyToSchedule(8, 0, "Preheat oven");
+        addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
+    }
+
+};
+
+class Receptionists : public HotelWorker {
+public:
+    Receptionists() {
+        HotelWorker("","", "Receptionists", 2500, 3);
+        addEveryDayDutyToSchedule(8, 0, "Start work on reception");
+        addDutyToSchedule("Monday", 15, 00, "Check if all rooms have keys");
+        addDutyToSchedule("Sunday", 18, 00, "Get paycheck");
+    }
+
+};
+
+class Maid : public HotelWorker {
+public:
+    Maid() {
+        HotelWorker("","", "Maid", 1000, 1);
+        addEveryDayDutyToSchedule(6, 0, "Start cleaning");
+        addDutyToSchedule("Sunday", 18, 00, "Order new detergents");
+    }
+
+};
+
+
+#endif //HOTEL_WORKERS_H
