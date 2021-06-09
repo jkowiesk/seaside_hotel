@@ -82,7 +82,7 @@ class Guest {
         Booked_rooms get_booked_rooms();
         int get_visitLength() {return visitLength;}
         void dayPassed() {visitTime++;}
-        bool visitEnded() {visitLength-visitTime==0 ? true : false;}
+        bool visitEnded() {return visitLength-visitTime==0 ? true : false;}
         void set_visitLength(int period);
         friend std::ostream& operator<<(std::ostream& stream, Guest& guest) {
             stream << "Guest name: " << guest.get_name() << std::endl;

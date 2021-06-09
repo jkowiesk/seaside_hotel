@@ -92,7 +92,7 @@ void Simulation::printDay(int day, std::string msg) {
 
 void Simulation::printTask(unsigned int hour, std::string msg) {
     std::cout << hour << ":00 "<< msg << std::endl;
-    ss << hour << ":00 " << msg < "\n";
+    ss << hour << ":00 " << msg << "\n";
 
     file_out_string.append(ss.str());
     cleanSstream();
@@ -106,22 +106,22 @@ void Simulation::printDuty(DutyEntry duty) {
     cleanSstream();
 }
 
-void Simulation::doTask() {
-    switch (rand) {
+std::string Simulation::doTask() {
+    switch (randomizeInstant(1,3)) {
         case 1:
             hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex()].first, guestNames[hotel.getGuestsIndex()].second));
             ss << guestNames[hotel.getGuestsIndex()].first << " " << guestNames[hotel.getGuestsIndex()].second << " registered";
             break;
         case 2:
-            int guestId = randomizeInstant(0,hotel.guests.size());
-            hotel.guestCallsTaxi(guestId);
-            ss << "Guest " << hotel.guests[guestId].get_surname() << " called a taxi\n";
+            //int guestId = randomizeInstant(0,hotel.guests.size());
+            //hotel.guestCallsTaxi(guestId);
+            ss << "Guest " << hotel.guests[randomizeInstant(0,hotel.guests.size())].get_surname() << " called a taxi\n";
             break;
         case 3:
-            int guestId = randomizeInstant(0,hotel.guests.size());
-            hotel.guestOrdersEq(guestId, Equipment("Furniture"));
-            ss <<   "Guest " <<  hotel.guests[guestId].get_surname() << " ordered furniture to room number " <<
-                    hotel.guests[guestId].bookedRoom->getNumber() << "\n";
+            //int guestId = randomizeInstant(0,hotel.guests.size());
+            //hotel.guestOrdersEq(randomizeInstant(0,hotel.guests.size()), Equipment("Furniture"));
+            ss <<   "Guest " <<  hotel.guests[randomizeInstant(0,hotel.guests.size())].get_surname() << " ordered furniture to room number " ;
+                    //hotel.guests[guestId].bookedRoom->getNumber() << "\n";
             break;
         //case 4:
             // na wycieczke jedzie czy ki chuj
@@ -136,7 +136,7 @@ void Simulation::doTask() {
 void Simulation::run() {
     int i;
     for (int day = 1; day < numberOfDays; day++) {
-        printMsg(day, "Day");
+        printDay(day, "Day");
         addGuest();
         // file_out_string = "";
         hours = generateHours();
@@ -144,7 +144,7 @@ void Simulation::run() {
         for (int hour = 1; hour < 24; hour++) {
             if (hour == hours[i]) {
                 i++;
-                msg = doTask(hour);
+                msg = doTask();
                 cleanSstream();
                 printTask(hour, msg);
             }

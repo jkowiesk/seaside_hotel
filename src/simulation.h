@@ -14,9 +14,11 @@ class Simulation {
     void promptMsg(std::string);
     int randomizeInstant(int, int);
     std::vector<int> generateHours();
-    void doTask();
-    void printDuty();
-    void printTask(unsigned int hour, unsigned int minutes, std::string msg);
+    std::string doTask();
+    void printDuty(DutyEntry);
+    void printDay(int, std::string);
+    void printTask(unsigned int, std::string);
+    void printTask(unsigned int, unsigned int , std::string);
 
     void randomize(int);
     void run();
@@ -37,6 +39,7 @@ class Simulation {
     int numberOfRooms;
     int busyness;
     int rand;
+    std::vector<int> hours;
     const int numberOfActions = 5;
     Hotel hotel;
 public:

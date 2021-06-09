@@ -32,13 +32,13 @@ void Hotel::hireWorkers(std::vector<std::pair<std::string, std::string>> names) 
         hotelWorkers.insert({i, Maid(names[i].first, names[i].second)});
     }
 };
-int Hotel::addGuest(Guest guest)
+void Hotel::addGuest(Guest guest)
 {
     guests.insert({indexGuests++, guest});
     for (int i=0; i < availableRooms.size() ; i++) {
         if ( availableRooms[i].emptySlots() > 0){
             availableRooms[i].addGuest(guest);
-            guest.bookedRoom = &availableRooms[i];
+            //guest.bookedRoom = &availableRooms[i];
         }
     }
 }
@@ -86,10 +86,10 @@ std::vector<DutyEntry> Hotel::getOnDuty(unsigned int hour, std::string day) {
                 break;
         }
     }
-    return du;
+    return duties;
 }
 void Hotel::guestOrdersEq(int guestId, Equipment eq) {
-    guests[guestId].bookedRoom->addEqupment(eq);
+    //guests[guestId].bookedRoom->addEqupment(eq);
 }
 std::string Hotel::guestCallsTaxi(int guestId) {
     return guests[guestId].get_surname();

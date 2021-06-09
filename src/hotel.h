@@ -22,7 +22,7 @@ public:
     Hotel() {}
     void createRooms(std::vector<int> rooms);
     void hireWorkers(std::vector<std::pair<std::string, std::string>> names);
-    int addGuest(Guest guest);
+    void addGuest(Guest guest);
     void checkVisitTimes();
     int getNumberOfGuests();
     void charge(int value) {income+=value;}

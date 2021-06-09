@@ -10,9 +10,9 @@ class DutyEntry {
 
 public:
     DutyEntry(const unsigned int, const unsigned int, const std::string);
-    inline unsigned int getHour();
-    inline unsigned int getMinutes();
-    inline std::string getDuty();
+    unsigned int getHour();
+    unsigned int getMinutes();
+    std::string getDuty();
 
     bool operator<(const DutyEntry&);
     friend std::ostream& operator<<(std::ostream&, const DutyEntry&);

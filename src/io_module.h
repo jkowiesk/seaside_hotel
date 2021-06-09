@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <utility> //dupa du
+#include <utility>
 #include <limits>
 
 namespace io {
@@ -32,11 +32,18 @@ namespace io {
     std::vector<std::pair<std::string, std::string>> getNames(std::string fileName, int numberOfNames = INT_MAX) {
         std::ifstream cif;
         std::string name;
+        std::string firstName;
+        std::string lastName;
+        int index;
         std::vector<std::pair<std::string, std::string>> names;
         cif.open(fileName);
         for (int i = 0; i < numberOfNames; i++) {
-            if (cif >> name)
+            if (cif >> name) {
+                index = name.find(';');
+                firstName = name.substr(0, index);
+                lastName = name.substr(index + 1, name.size());
                 names.push_back(std::make_pair(firstName, lastName));
+            }
             else
                 break;
         }

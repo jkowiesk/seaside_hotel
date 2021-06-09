@@ -8,15 +8,15 @@ DutyEntry::DutyEntry(const unsigned newHour, const unsigned int newMintues, cons
     duty = newDuty;
 }
 
-inline unsigned int DutyEntry::getHour() {
+unsigned int DutyEntry::getHour() {
     return hour;
 }
 
-inline unsigned int DutyEntry::getMinutes() {
+unsigned int DutyEntry::getMinutes() {
     return minutes;
 }
 
-inline std::string DutyEntry::getDuty() {
+std::string DutyEntry::getDuty() {
     return duty;
 }
 
