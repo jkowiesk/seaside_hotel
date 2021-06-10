@@ -34,7 +34,3 @@ public:
     std::vector<std::pair<HotelWorker, DutyEntry>> getOnDuty(unsigned int hour, std::string day);
 };
 #endif
-    // for (const auto& kv : options) {
-    //     std::cout << kv.first << ") " << kv.second << std::endl;
-    // }
-    // map.insert({ 2, 30 });

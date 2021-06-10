@@ -21,9 +21,6 @@ void Simulation::init() {
             {6, "Sunday"}
     };
 
-
-    guestIndex = 0;
-
     guestNames = io::getNames("guestList.txt");
     std::vector<int> rooms;
     for (int j = 0; j < numberOfRooms;j++) {

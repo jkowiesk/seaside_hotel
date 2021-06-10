@@ -31,7 +31,7 @@ void Hotel::createRooms(std::vector<int> rooms) {
 }
 void Hotel::hireWorkers(std::vector<std::pair<std::string, std::string>> names) {
     int j = 0;
-    for (int i=0;i<(availableRooms.size()/10 + 1);i++) {
+    for (int i=0;i<(availableRooms.size()/7 + 1);i++) {
         hotelWorkers.insert({j, Maid(names[j].first, names[j].second)});
         j++;
     }
@@ -40,7 +40,7 @@ void Hotel::hireWorkers(std::vector<std::pair<std::string, std::string>> names) 
         j++;
     }
 
-    for (int i=0;i<(availableRooms.size()/10 + 1);i++) {
+    for (int i=0;i<(availableRooms.size()/4 + 1);i++) {
         hotelWorkers.insert({j, Receptionists(names[j].first, names[j].second)});
         j++;
     }
@@ -96,6 +96,7 @@ int Hotel::cleanRooms() {
 void Hotel::guestOrdersEq(int roomId, Equipment eq) {
     availableRooms[roomId].addEquipment(eq);
 }
+
 std::vector<std::pair<HotelWorker, DutyEntry>> Hotel::getOnDuty(unsigned int hour, std::string day) {
     std::vector<std::pair<HotelWorker, DutyEntry>> pairs;
     HotelWorker tempWorker;

@@ -4,7 +4,6 @@
 
 class Waiter : public HotelWorker {
 public:
-    //Waiter(std::string firstName, std::string lastName, std::string newPosition="Waiter", long double newSalary=1500, int newPermissionLevel=1) {
     Waiter(std::string firstName, std::string lastName) : HotelWorker(firstName, lastName, "Waiter", 1500, 1) {
         addEveryDayDutyToSchedule(7, 30, "Clean tables");
     }
@@ -14,7 +13,6 @@ public:
 class Cook : public HotelWorker {
 public:
     Cook(std::string firstName, std::string lastName) : HotelWorker(firstName, lastName, "Cook", 3000, 2) {
-        //HotelWorker(firstName, lastName, "Cook", 3000, 2);
         addEveryDayDutyToSchedule(7, 30, "Check freshness of food");
     }
 

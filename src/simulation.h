@@ -34,7 +34,6 @@ class Simulation {
     std::map<int, std::string> intToDay;
     std::vector<std::pair<std::string, std::string>> guestNames;
     std::vector<DutyEntry> duties;
-    int guestIndex;
     int numberOfDays;
     int numberOfRooms;
     int busyness;
