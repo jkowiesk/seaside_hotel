@@ -32,12 +32,6 @@ void Simulation::init() {
     hotel.createRooms(rooms);
     hotel.hireWorkers(io::getNames("workerList.txt"));
 }
-void Simulation::randomize(int maxInt) {
-    std::random_device rd;
-    std::mt19937 mt(rd());
-    std::uniform_int_distribution<int> dist(1, maxInt);
-    rand = dist(mt);
-}
 
 int Simulation::randomizeInstant(int minInt, int maxInt) {
     std::random_device rd;
@@ -61,8 +55,8 @@ void Simulation::cleanSstream() {
 }
 
 void Simulation::addGuest() {
-    hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex() % 100].first, guestNames[hotel.getGuestsIndex() % 100].second), randomizeInstant(1, numberOfDays));
-    ss << "0:00: " << guestNames[hotel.getGuestsIndex() % 100].first << " " << guestNames[hotel.getGuestsIndex() % 100].second << " registered\n";
+    hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex() % 200].first, guestNames[hotel.getGuestsIndex() % 200].second), randomizeInstant(1, numberOfDays));
+    ss << "0:00: " << guestNames[hotel.getGuestsIndex() % 200].first << " " << guestNames[hotel.getGuestsIndex() % 200].second << " registered\n";
 
     std::cout << ss.str();
     file_out_string.append(ss.str());
@@ -115,16 +109,16 @@ std::string Simulation::doTask() {
     int guestId;
     switch (randomizeInstant(1,3)) {
         case 1:
-            hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex() % 100].first, guestNames[hotel.getGuestsIndex() % 100].second), randomizeInstant(1, numberOfDays));
-            ss << guestNames[hotel.getGuestsIndex() % 100].first << " " << guestNames[hotel.getGuestsIndex() % 100].second << " registered";
+            hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex() % 200].first, guestNames[hotel.getGuestsIndex() % 200].second), randomizeInstant(1, numberOfDays));
+            ss << guestNames[hotel.getGuestsIndex() % 200].first << " " << guestNames[hotel.getGuestsIndex() % 200].second << " registered";
             break;
         case 2:
-            guestId = randomizeInstant(0,hotel.guests.size());
+            guestId = randomizeInstant(0,hotel.guests.size()-1);
             hotel.guestCallsTaxi(guestId);
             ss << "Guest " << hotel.guests[guestId].get_surname() << " called a taxi";
             break;
         case 3:
-            guestId = randomizeInstant(0,hotel.availableRooms.size());
+            guestId = randomizeInstant(0,hotel.availableRooms.size()-1);
             hotel.guestOrdersEq(guestId, Equipment("Furniture"));
             ss <<   "Guest from room nr " << guestId << " ordered new furniture." ;
             break;
@@ -132,30 +126,33 @@ std::string Simulation::doTask() {
             break;
     }
 
-    return ss.str(); // czemu to jest w ogole zwracane?
+    return ss.str();
 }
 
 void Simulation::run() {
-    int i;
-    for (int day = 1; day <= numberOfDays; day++) {
-        printDay(day, "Day");
-        addGuest();
-        hours = generateHours();
-        i = 0;
-        for (int hour = 1; hour < 24; hour++) {
-            while (hour == hours[i]) {
-                i++;
-                msg = doTask();
-                cleanSstream();
-                printTask(hour, msg);
+        int i;
+        for (int day = 1; day <= numberOfDays; day++) {
+            printDay(day, "Day");
+            addGuest();
+            hours = generateHours();
+            i = 0;
+            for (int hour = 1; hour < 24; hour++) {
+                while (hour == hours[i]) {
+                    i++;
+                    msg = doTask();
+                    cleanSstream();
+                    printTask(hour, msg);
+                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                }
+                std::vector<std::pair<HotelWorker, DutyEntry>> pairs = hotel.getOnDuty(hour,intToDay.at((day - 1) % 7));
+                for (auto &pair : pairs) {
+                    printDuty(pair.first, pair.second);
+                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                }
             }
-            std::vector<std::pair<HotelWorker, DutyEntry>> pairs = hotel.getOnDuty(hour, intToDay.at((day-1) % 7));
-            for(auto& pair : pairs) {
-                printDuty(pair.first, pair.second);
-            }
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
         }
-        // std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-    }
+
 
 }
 
