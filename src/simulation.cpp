@@ -4,15 +4,13 @@
 #include <random>
 #include <functional>
 #include <vector>
+#include <utility>
 #include <sstream>
+#include <algorithm>
+#include <thread>
+#include <chrono>
 
 void Simulation::init() {
-    int temp = 24 / busyness;
-    ranges.push_back(0);
-    for (int i = temp; i <= 24; i += temp) {
-        ranges.push_back(i);
-    }
-
     intToDay = {
             {0, "Monday"},
             {1, "Tuesday"},
@@ -20,8 +18,9 @@ void Simulation::init() {
             {3, "Thursday"},
             {4, "Friday"},
             {5, "Saturday"},
-            {6, "Sunday "}
+            {6, "Sunday"}
     };
+
 
     guestIndex = 0;
 
@@ -34,23 +33,26 @@ void Simulation::init() {
     hotel.hireWorkers(io::getNames("workerList.txt"));
 }
 void Simulation::randomize(int maxInt) {
-    std::default_random_engine generator;
-    std::uniform_int_distribution<int> distribution(1, maxInt);
-    rand = distribution(generator);
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_int_distribution<int> dist(1, maxInt);
+    rand = dist(mt);
 }
 
 int Simulation::randomizeInstant(int minInt, int maxInt) {
-    std::default_random_engine generator;
-    std::uniform_int_distribution<int> distribution(minInt, maxInt);
-    int num = distribution(generator);
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_int_distribution<int> dist(minInt, maxInt);
+    int num = dist(mt);
     return num;
 }
 
 std::vector<int> Simulation::generateHours() {
     std::vector<int> hours;
-    for (int i = 0; i < ranges.size()-1; i++) {
-        hours.push_back(randomizeInstant(ranges[i], ranges[i+1]));
+    for (int i = 0; i < busyness; i++) {
+        hours.push_back(randomizeInstant(1, 23));
     }
+    std::sort(hours.begin(), hours.end());
     return hours;
 }
 
@@ -59,9 +61,10 @@ void Simulation::cleanSstream() {
 }
 
 void Simulation::addGuest() {
-    hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex()].first, guestNames[hotel.getGuestsIndex()].second));
-    ss << guestNames[hotel.getGuestsIndex()].first << " " << guestNames[hotel.getGuestsIndex()].second << " registered";
+    hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex() % 100].first, guestNames[hotel.getGuestsIndex() % 100].second), randomizeInstant(1, numberOfDays));
+    ss << "0:00: " << guestNames[hotel.getGuestsIndex() % 100].first << " " << guestNames[hotel.getGuestsIndex() % 100].second << " registered\n";
 
+    std::cout << ss.str();
     file_out_string.append(ss.str());
     cleanSstream();
 }
@@ -83,6 +86,7 @@ void Simulation::promptMsg(std::string msg) {
 }
 
 void Simulation::printDay(int day, std::string msg) {
+    cleanSstream();
     std::cout << msg << " " << day << ":" << std::endl;
     ss << msg << " " << day << ":" << std::endl;
 
@@ -98,34 +102,32 @@ void Simulation::printTask(unsigned int hour, std::string msg) {
     cleanSstream();
 }
 
-void Simulation::printDuty(DutyEntry duty) {
-    std::cout << duty << std::endl;
-    ss << duty << "\n";
+void Simulation::printDuty(HotelWorker worker, DutyEntry duty) {
+    cleanSstream();
+    std::cout << duty << " by " << worker.getFirstName() << " " << worker.getLastName() << std::endl;
+    ss << duty << " by " << worker.getFirstName() << " " << worker.getLastName() << "\n";
 
     file_out_string.append(ss.str());
     cleanSstream();
 }
 
 std::string Simulation::doTask() {
+    int guestId;
     switch (randomizeInstant(1,3)) {
         case 1:
-            hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex()].first, guestNames[hotel.getGuestsIndex()].second));
-            ss << guestNames[hotel.getGuestsIndex()].first << " " << guestNames[hotel.getGuestsIndex()].second << " registered";
+            hotel.addGuest(Guest(guestNames[hotel.getGuestsIndex() % 100].first, guestNames[hotel.getGuestsIndex() % 100].second), randomizeInstant(1, numberOfDays));
+            ss << guestNames[hotel.getGuestsIndex() % 100].first << " " << guestNames[hotel.getGuestsIndex() % 100].second << " registered";
             break;
         case 2:
-            //int guestId = randomizeInstant(0,hotel.guests.size());
-            //hotel.guestCallsTaxi(guestId);
-            ss << "Guest " << hotel.guests[randomizeInstant(0,hotel.guests.size())].get_surname() << " called a taxi\n";
+            guestId = randomizeInstant(0,hotel.guests.size());
+            hotel.guestCallsTaxi(guestId);
+            ss << "Guest " << hotel.guests[guestId].get_surname() << " called a taxi";
             break;
         case 3:
-            //int guestId = randomizeInstant(0,hotel.guests.size());
-            //hotel.guestOrdersEq(randomizeInstant(0,hotel.guests.size()), Equipment("Furniture"));
-            ss <<   "Guest " <<  hotel.guests[randomizeInstant(0,hotel.guests.size())].get_surname() << " ordered furniture to room number " ;
-                    //hotel.guests[guestId].bookedRoom->getNumber() << "\n";
+            guestId = randomizeInstant(0,hotel.availableRooms.size());
+            hotel.guestOrdersEq(guestId, Equipment("Furniture"));
+            ss <<   "Guest from room nr " << guestId << " ordered new furniture." ;
             break;
-        //case 4:
-            // na wycieczke jedzie czy ki chuj
-            //break;
         default:
             break;
     }
@@ -135,24 +137,24 @@ std::string Simulation::doTask() {
 
 void Simulation::run() {
     int i;
-    for (int day = 1; day < numberOfDays; day++) {
+    for (int day = 1; day <= numberOfDays; day++) {
         printDay(day, "Day");
         addGuest();
-        // file_out_string = "";
         hours = generateHours();
         i = 0;
         for (int hour = 1; hour < 24; hour++) {
-            if (hour == hours[i]) {
+            while (hour == hours[i]) {
                 i++;
                 msg = doTask();
                 cleanSstream();
                 printTask(hour, msg);
             }
-            duties = hotel.getOnDuty(hour, intToDay.at(day % 7));
-            for(auto& duty : duties) {
-                printDuty(duty);
+            std::vector<std::pair<HotelWorker, DutyEntry>> pairs = hotel.getOnDuty(hour, intToDay.at((day-1) % 7));
+            for(auto& pair : pairs) {
+                printDuty(pair.first, pair.second);
             }
         }
+        // std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     }
 
 }
@@ -166,4 +168,5 @@ void Simulation::main() {
     getParams();
     init();
     run();
+    io::wirteStringToFile("output.txt", file_out_string);
 }

@@ -9,7 +9,7 @@ class DutyEntry {
     std::string duty;
 
 public:
-    DutyEntry(const unsigned int, const unsigned int, const std::string);
+    DutyEntry(unsigned int, unsigned int, std::string);
     unsigned int getHour();
     unsigned int getMinutes();
     std::string getDuty();
@@ -17,7 +17,7 @@ public:
     bool operator<(const DutyEntry&);
     friend std::ostream& operator<<(std::ostream&, const DutyEntry&);
 
-    inline bool operator==(const DutyEntry& other) const {
+    bool operator==(const DutyEntry& other) const {
         return (hour == other.hour && minutes == other.minutes && duty == other.duty);
     }
 

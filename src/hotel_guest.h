@@ -67,7 +67,6 @@ class Guest {
         Document document;
         Booked_rooms booked_rooms;
     public:
-        //HotelRoom* bookedRoom;
         void set_name(std::string new_name);
         void set_surname(std::string new_surname);
         std::string get_name();
@@ -87,10 +86,6 @@ class Guest {
         friend std::ostream& operator<<(std::ostream& stream, Guest& guest) {
             stream << "Guest name: " << guest.get_name() << std::endl;
             stream << "Guest surname: " << guest.get_surname() << std::endl;
-            // stream << "Guest document: " << guest.get_document() << std::endl;
-            // stream << "Guest check in hour: " << guest.get_check_in() << std::endl;
-            // stream << "Guest check out hour: " << guest.get_check_out() << std::endl;
-            // stream << "Guest booked rooms numbers: " << guest.get_booked_rooms() << std::endl;
             return stream;
         }
         Guest() {};

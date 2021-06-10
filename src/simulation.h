@@ -1,6 +1,7 @@
 #ifndef TEST_H
 #define TEST_H
 #include "hotel_room.h"
+#include "hotel_worker.h"
 #include "duty_entry.h"
 #include <map>
 #include <string>
@@ -15,7 +16,7 @@ class Simulation {
     int randomizeInstant(int, int);
     std::vector<int> generateHours();
     std::string doTask();
-    void printDuty(DutyEntry);
+    void printDuty(HotelWorker, DutyEntry);
     void printDay(int, std::string);
     void printTask(unsigned int, std::string);
     void printTask(unsigned int, unsigned int , std::string);
@@ -31,7 +32,6 @@ class Simulation {
     std::stringstream ss;
     std::string msg;
     std::map<int, std::string> intToDay;
-    std::vector<int> ranges;
     std::vector<std::pair<std::string, std::string>> guestNames;
     std::vector<DutyEntry> duties;
     int guestIndex;

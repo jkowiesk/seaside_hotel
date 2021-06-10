@@ -13,7 +13,7 @@ class Hotel
 {
     int income;
     int cost;
-    int indexGuests;
+    int indexGuests = 0;
 public:
     int getGuestsIndex() {return indexGuests;}
     std::map<int, HotelWorker> hotelWorkers;
@@ -22,16 +22,16 @@ public:
     Hotel() {}
     void createRooms(std::vector<int> rooms);
     void hireWorkers(std::vector<std::pair<std::string, std::string>> names);
-    void addGuest(Guest guest);
+    void addGuest(Guest guest, int visitLength);
     void checkVisitTimes();
     int getNumberOfGuests();
     void charge(int value) {income+=value;}
     void pay(int value) {cost+=value;}
     double calculateVisitCost(HotelRoom room, Guest guest);
     int cleanRooms();
-    void guestOrdersEq(int guestId, Equipment eq);
-    std::string guestCallsTaxi(int guestId);
-    std::vector<DutyEntry> getOnDuty(unsigned int hour, std::string day);
+    void guestOrdersEq(int roomId, Equipment eq);
+    void guestCallsTaxi(int guestId);
+    std::vector<std::pair<HotelWorker, DutyEntry>> getOnDuty(unsigned int hour, std::string day);
 };
 #endif
     // for (const auto& kv : options) {

@@ -29,14 +29,13 @@ namespace io {
 
     }
 
-    std::vector<std::pair<std::string, std::string>> getNames(std::string fileName, int numberOfNames = INT_MAX) {
-        std::ifstream cif;
+    std::vector<std::pair<std::string, std::string>> getNames(std::string fileName, int numberOfNames = 2147483646) {
+        std::ifstream cif(fileName);
         std::string name;
         std::string firstName;
         std::string lastName;
         int index;
         std::vector<std::pair<std::string, std::string>> names;
-        cif.open(fileName);
         for (int i = 0; i < numberOfNames; i++) {
             if (cif >> name) {
                 index = name.find(';');
@@ -47,9 +46,16 @@ namespace io {
             else
                 break;
         }
-
+        cif.close();
         return names;
     }
+
+    void wirteStringToFile(std::string outputFile, std::string string) {
+        std::ofstream couf(outputFile);
+        couf << string;
+        couf.close();
+    }
+
 
 }
 

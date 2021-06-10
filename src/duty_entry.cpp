@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 
-DutyEntry::DutyEntry(const unsigned newHour, const unsigned int newMintues, const std::string newDuty) {
+DutyEntry::DutyEntry(unsigned newHour, unsigned int newMintues, std::string newDuty) {
     hour = newHour;
     minutes = newMintues;
     duty = newDuty;

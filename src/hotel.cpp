@@ -1,8 +1,10 @@
 #include "hotel.h"
 #include "hotel_room.h"
 #include "hotel_guest.h"
+#include "hotel_workers.h"
 #include "duty_entry.h"
 #include <cmath>
+#include <utility>
 
 void Hotel::createRooms(std::vector<int> rooms) {
     // roomArr[2, 3, 4, 1, 2, 5, 2, 5, 2]
@@ -10,35 +12,51 @@ void Hotel::createRooms(std::vector<int> rooms) {
         switch (rooms[i])
         {
         case 1:
-            availableRooms.push_back(SingleRoom(i+1, i+1%i/3, 12));
+            availableRooms.push_back(SingleRoom(i+1, i+1/3, 12));
             break;
         case 2:
-            availableRooms.push_back(DoubleRoom(i+1, i+1%i/3, 24));
+            availableRooms.push_back(DoubleRoom(i+1, i+1/3, 24));
             break;
         case 3:
-            availableRooms.push_back(TripleRoom(i+1, i+1%i/3, 30));
+            availableRooms.push_back(TripleRoom(i+1, i+1/3, 30));
             break;
         case 4:
-            availableRooms.push_back(SquadRoom(i+1, i+1%i/3, 36));
+            availableRooms.push_back(SquadRoom(i+1, i+1/3, 36));
             break;
         default:
-            availableRooms.push_back(Dormitory(i+1, rooms[i], i+1%i/3, 40));
+            availableRooms.push_back(Dormitory(i+1, rooms[i], i+1/3, 40));
             break;
         }
     }
 }
 void Hotel::hireWorkers(std::vector<std::pair<std::string, std::string>> names) {
-    for (int i=0;i<availableRooms.size()/10;i++) {
-        hotelWorkers.insert({i, Maid(names[i].first, names[i].second)});
+    int j = 0;
+    for (int i=0;i<(availableRooms.size()/10 + 1);i++) {
+        hotelWorkers.insert({j, Maid(names[j].first, names[j].second)});
+        j++;
+    }
+    for (int i=0;i<(availableRooms.size()/10 + 1);i++) {
+        hotelWorkers.insert({j, Cook(names[j].first, names[j].second)});
+        j++;
+    }
+
+    for (int i=0;i<(availableRooms.size()/10 + 1);i++) {
+        hotelWorkers.insert({j, Receptionists(names[j].first, names[j].second)});
+        j++;
+    }
+
+    for (int i=0;i<(availableRooms.size()/10 + 1);i++) {
+        hotelWorkers.insert({j, Waiter(names[j].first, names[j].second)});
+        j++;
     }
 };
-void Hotel::addGuest(Guest guest)
+void Hotel::addGuest(Guest guest, int visitLength)
 {
     guests.insert({indexGuests++, guest});
     for (int i=0; i < availableRooms.size() ; i++) {
         if ( availableRooms[i].emptySlots() > 0){
             availableRooms[i].addGuest(guest);
-            //guest.bookedRoom = &availableRooms[i];
+            guest.set_visitLength(visitLength);
         }
     }
 }
@@ -76,21 +94,21 @@ int Hotel::cleanRooms() {
     // std::cout << noCleaned << " were cleaned." << std::endl;
 }
 
-std::vector<DutyEntry> Hotel::getOnDuty(unsigned int hour, std::string day) {
-    std::vector<HotelWorker> tempHotelWorkers;
-    std::vector<DutyEntry> duties;
+void Hotel::guestOrdersEq(int roomId, Equipment eq) {
+    availableRooms[roomId].addEquipment(eq);
+}
+std::vector<std::pair<HotelWorker, DutyEntry>> Hotel::getOnDuty(unsigned int hour, std::string day) {
+    std::vector<std::pair<HotelWorker, DutyEntry>> pairs;
+    HotelWorker tempWorker;
     for (auto& kv : hotelWorkers) {
-        for(auto& duty : kv.second.getSchedule().getDuties(day)) {
-            if (duty.getHour() == hour)
-                duties.push_back(duty);
-                break;
+        tempWorker = kv.second;
+        for(auto& tempDuty : kv.second.getSchedule().getDuties(day)) {
+            if (tempDuty.getHour() == hour)
+                pairs.push_back(std::make_pair(tempWorker, tempDuty));
         }
     }
-    return duties;
+    return pairs;
 }
-void Hotel::guestOrdersEq(int guestId, Equipment eq) {
-    //guests[guestId].bookedRoom->addEqupment(eq);
-}
-std::string Hotel::guestCallsTaxi(int guestId) {
-    return guests[guestId].get_surname();
+void Hotel::guestCallsTaxi(int guestId) {
+
 }

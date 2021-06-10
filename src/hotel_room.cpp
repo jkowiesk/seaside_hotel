@@ -23,7 +23,6 @@ int HotelRoom::emptySlots()
 {
     int empty = slots - guestList.size();
     return empty;
-    //std::cout << "This HotelRoom has " << empty << " slots left." << std::endl;
 }
 
 int HotelRoom::getFloor()
@@ -68,10 +67,6 @@ void HotelRoom::addEquipment(Equipment newEq)
 }
 void HotelRoom::removeEquipment(int choice)
 {
-//    // numbers shoudl be printed by other method beforehand
-//    std::cout << "Choose the number of equipment you want to remove: ";
-//    int choice;
-//    std::cin >> choice;
     while(std::cin.fail() | choice < 1 | choice > equipmentList.size())
     {
         std::cout << "Wrong input. Choose equipment from the list. ";
@@ -113,10 +108,6 @@ void HotelRoom::addGuest(Guest newGuest)
 }
 void HotelRoom::removeGuest(int choice)
 {
-//    printGuests();
-//    std::cout << "Choose the number of guest you want to remove: ";
-//    int choice;
-//    std::cin >> choice;
     while(std::cin.fail() | choice < 1 | choice > guestList.size())
     {
         std::cout << "Wrong input. Choose a guest from the list. ";
