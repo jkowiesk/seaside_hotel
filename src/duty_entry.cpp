@@ -2,21 +2,21 @@
 #include <iostream>
 #include <sstream>
 
-DutyEntry::DutyEntry(const unsigned newHour, const unsigned int newMintues, const std::string newDuty) {
+DutyEntry::DutyEntry(unsigned newHour, unsigned int newMintues, std::string newDuty) {
     hour = newHour;
     minutes = newMintues;
     duty = newDuty;
 }
 
-inline unsigned int DutyEntry::getHour() {
+unsigned int DutyEntry::getHour() {
     return hour;
 }
 
-inline unsigned int DutyEntry::getMinutes() {
+unsigned int DutyEntry::getMinutes() {
     return minutes;
 }
 
-inline std::string DutyEntry::getDuty() {
+std::string DutyEntry::getDuty() {
     return duty;
 }
 

@@ -6,18 +6,6 @@
 #include <string>
 #include "hotel_guest.h"
 
-//class Guest
-//{
-//    std::string name;
-//public:
-//    friend
-//    std::ostream& operator<< (std::ostream &os, const Guest g)
-//    {
-//        os << "Guest name: " << g.name;
-//        return os;
-//    }
-//};
-
 
 class HotelRoom
 {
@@ -35,7 +23,7 @@ public:
     void setNumber(int newNumber);
     int getSlots();
     void setSlots(int newSlots);
-    void emptySlots();
+    int emptySlots();
     int getFloor();
     void setFloor(int newFloor);
     int getArea();
@@ -54,16 +42,16 @@ public:
     bool operator== (const HotelRoom room)
     {
         if (number == room.number)
-        { return true; }
+            return true;
         else
-        { return false; }
+            return false;
     };
     bool operator!= (const HotelRoom room)
     {
         if (number != room.number)
-        { return true; }
+            return true;
         else
-        { return false; }
+            return false;
     };
 };
 

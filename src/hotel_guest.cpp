@@ -120,15 +120,17 @@ void Guest::set_booked_rooms(Booked_rooms rooms){
 Booked_rooms Guest::get_booked_rooms() {
     return booked_rooms;
 }
-//constructor
-Guest::Guest(std::string a, std::string b, int c, int d, Document e, Booked_rooms f) {
-    name = a;
-    surname = b;
-    check_in = c;
-    check_out = d;
-    document = e;
-    booked_rooms = f;
+void Guest::set_visitLength(int period) {
+    visitLength = period;
 }
+// //constructor
+// Guest::Guest(std::string a, std::string b, int c, int d, Document e) {
+//     name = a;
+//     surname = b;
+//     check_in = c;
+//     check_out = d;
+//     document = e;
+// }
 
 
 //Bartosz Kosinski

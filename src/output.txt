@@ -1,0 +1,323 @@
+Day 1:
+0:00: Shane Kaufman registered
+2:00 Guest  called a taxi
+5:00 Tristen Black registered
+6:00 Guest from room nr 5 ordered new furniture.
+7:00 Keith West registered
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+8:00 Guest from room nr 9 ordered new furniture.
+9:00 Darryl Reeves registered
+12:00 Guest  called a taxi
+13:00 Kamari Ali registered
+16:00 Javon Compton registered
+17:00 Sheldon Collins registered
+20:00 Guest  called a taxi
+20:00 Guest from room nr 15 ordered new furniture.
+21:00 Guest from room nr 4 ordered new furniture.
+22:00 Guest from room nr 10 ordered new furniture.
+23:00 Guest from room nr 11 ordered new furniture.
+Day 2:
+0:00: William Bartlett registered
+2:00 Richard Campos registered
+2:00 Salma Harper registered
+3:00 Guest from room nr 13 ordered new furniture.
+3:00 Guest from room nr 7 ordered new furniture.
+5:00 Guest  called a taxi
+5:00 Guest Compton called a taxi
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+11:00 Guest from room nr 15 ordered new furniture.
+14:00 Guest  called a taxi
+15:00 Guest from room nr 7 ordered new furniture.
+16:00 Ryann Duncan registered
+16:00 Justine Barron registered
+17:00 Guest from room nr 10 ordered new furniture.
+19:00 Guest from room nr 8 ordered new furniture.
+20:00 Guest from room nr 14 ordered new furniture.
+21:00 Andreas Mejia registered
+Day 3:
+0:00: Fernando Richards registered
+1:00 Guest Duncan called a taxi
+3:00 Guest  called a taxi
+6:00 Clare Rowland registered
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+10:00 Guest from room nr 14 ordered new furniture.
+10:00 Guest Ali called a taxi
+13:00 Guest Barron called a taxi
+14:00 Guest from room nr 2 ordered new furniture.
+14:00 Guest from room nr 14 ordered new furniture.
+15:00 Guest from room nr 3 ordered new furniture.
+17:00 Guest Black called a taxi
+17:00 Desirae Kemp registered
+20:00 Josue Mendoza registered
+21:00 Guest Stevens called a taxi
+22:00 Guest Kemp called a taxi
+23:00 Guest from room nr 5 ordered new furniture.
+Day 4:
+0:00: Parker Richards registered
+4:00 Arthur Barron registered
+6:00 Derek Bates registered
+6:00 Spencer Fernandez registered
+6:00 Paul Poole registered
+6:00 Guest from room nr 11 ordered new furniture.
+7:00 Guest Black called a taxi
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+8:00 Guest from room nr 0 ordered new furniture.
+10:00 Madden Hanson registered
+15:00 Guest  called a taxi
+16:00 Guest from room nr 9 ordered new furniture.
+17:00 Alyson Whitney registered
+17:00 Paul Glover registered
+20:00 Donna Bates registered
+22:00 Guest from room nr 6 ordered new furniture.
+22:00 Guest from room nr 11 ordered new furniture.
+Day 5:
+0:00: Jace Fitzgerald registered
+7:00 Guest Richards called a taxi
+7:00 Guest from room nr 11 ordered new furniture.
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+10:00 Guest from room nr 13 ordered new furniture.
+10:00 Kristin Ingram registered
+11:00 Guest Stevens called a taxi
+13:00 Guest Bates called a taxi
+13:00 Johan Mclaughlin registered
+14:00 Guest Stevens called a taxi
+15:00 Marin Reese registered
+18:00 Guest  called a taxi
+18:00 Guest Mclaughlin called a taxi
+20:00 Guest from room nr 4 ordered new furniture.
+21:00 Guest from room nr 14 ordered new furniture.
+21:00 Guest  called a taxi
+23:00 Guest from room nr 10 ordered new furniture.
+Day 6:
+0:00: Andres Tucker registered
+3:00 Kennedi Trevino registered
+3:00 Jayvion West registered
+5:00 Guest Campos called a taxi
+5:00 Guest from room nr 11 ordered new furniture.
+5:00 Guest from room nr 8 ordered new furniture.
+6:00 Guest Campos called a taxi
+6:00 Roberto Stuart registered
+7:00 Guest from room nr 4 ordered new furniture.
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+8:00 Helen Galloway registered
+9:00 Guest Rowland called a taxi
+15:00 Guest Richards called a taxi
+15:00 Guest from room nr 5 ordered new furniture.
+16:00 Guest Stuart called a taxi
+18:00 Guest from room nr 3 ordered new furniture.
+19:00 Ingrid Rodriguez registered
+Day 7:
+0:00: Ashton Burke registered
+1:00 Dorian Wyatt registered
+6:00 Clean all rooms by Giuseppina Ricco
+6:00 Clean all rooms by Giovanni Pitzer
+7:00 Abdiel Love registered
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+8:00 Miah Gonzales registered
+10:00 Guest from room nr 5 ordered new furniture.
+11:00 Guest from room nr 7 ordered new furniture.
+12:00 Guest from room nr 5 ordered new furniture.
+12:00 Eden Gordon registered
+13:00 Guest Stevens called a taxi
+13:00 Guest from room nr 2 ordered new furniture.
+14:00 Corinne Spence registered
+18:00 Guest Tucker called a taxi
+18:00 Get paycheck by Andrea Bascombe
+18:00 Get paycheck by Mimi Greening
+20:00 Guest from room nr 2 ordered new furniture.
+21:00 Guest from room nr 15 ordered new furniture.
+22:00 Guest Mclaughlin called a taxi
+23:00 Guest from room nr 10 ordered new furniture.
+Day 8:
+0:00: Kyra Powers registered
+3:00 Eliana Graham registered
+3:00 Guest from room nr 8 ordered new furniture.
+5:00 Guest from room nr 13 ordered new furniture.
+5:00 Guest from room nr 1 ordered new furniture.
+6:00 Guest Mclaughlin called a taxi
+6:00 Jocelyn Rodgers registered
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+12:00 Guest Stevens called a taxi
+15:00 Guest from room nr 4 ordered new furniture.
+18:00 Camilla Kirby registered
+18:00 Guest from room nr 14 ordered new furniture.
+20:00 Kasey Ho registered
+22:00 Guest Bates called a taxi
+23:00 Guest from room nr 15 ordered new furniture.
+23:00 Guest from room nr 10 ordered new furniture.
+23:00 Guest  called a taxi
+Day 9:
+0:00: Boston Trujillo registered
+1:00 Guest Ho called a taxi
+1:00 Guest Powers called a taxi
+2:00 Christian Parsons registered
+3:00 Guest  called a taxi
+4:00 Guest from room nr 4 ordered new furniture.
+5:00 Giuseppina Ricco registered
+7:00 Guest from room nr 2 ordered new furniture.
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+8:00 Giovanni Pitzer registered
+14:00 Guest from room nr 14 ordered new furniture.
+14:00 Guest from room nr 11 ordered new furniture.
+15:00 Guest  called a taxi
+16:00 Guest Rodgers called a taxi
+17:00 Guest Mendoza called a taxi
+19:00 Guest from room nr 10 ordered new furniture.
+21:00 Guest from room nr 13 ordered new furniture.
+Day 10:
+0:00: Alecia Roudebush registered
+1:00 Pete Tackitt registered
+1:00 Guest from room nr 2 ordered new furniture.
+2:00 Guest from room nr 3 ordered new furniture.
+2:00 Andrea Bascombe registered
+4:00 Guest  called a taxi
+4:00 Guest Mclaughlin called a taxi
+4:00 Guest Powers called a taxi
+6:00 Guest from room nr 0 ordered new furniture.
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+10:00 Mimi Greening registered
+10:00 Ben Strain registered
+15:00 Armando Lovett registered
+15:00 Guest from room nr 7 ordered new furniture.
+19:00 Shanon Shen registered
+22:00 Guest  called a taxi
+23:00 Guest from room nr 12 ordered new furniture.
+Day 11:
+0:00: Laurie Beason registered
+1:00 Harlan Pech registered
+2:00 Guest Ho called a taxi
+3:00 Guest from room nr 8 ordered new furniture.
+3:00 Guest Ricco called a taxi
+5:00 Nila Paschke registered
+6:00 Melina Shortridge registered
+6:00 Guest Bates called a taxi
+7:00 Lewis Moncayo registered
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+10:00 Guest from room nr 12 ordered new furniture.
+14:00 Guest Bascombe called a taxi
+16:00 Guest Whitney called a taxi
+17:00 Guest Parsons called a taxi
+18:00 Ignacio Funnell registered
+19:00 Guest from room nr 5 ordered new furniture.
+20:00 Sheree Juneau registered
+Day 12:
+0:00: Rivka Mariscal registered
+5:00 Guest Shortridge called a taxi
+6:00 Mandy Dinan registered
+6:00 Racquel Ribble registered
+7:00 Billi Korhonen registered
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+14:00 Guest Ribble called a taxi
+14:00 Guest from room nr 6 ordered new furniture.
+14:00 Guest Richards called a taxi
+15:00 Ulysses Schulte registered
+15:00 Micah Galiano registered
+15:00 Yessenia Nemeth registered
+17:00 Guest Roudebush called a taxi
+19:00 Abraham Corp registered
+20:00 Guest Pech called a taxi
+22:00 Quincy Mcelravy registered
+23:00 Lezlie Boyter registered
+Day 13:
+0:00: Sol Kimsey registered
+2:00 Guest Bartlett called a taxi
+2:00 Guest from room nr 2 ordered new furniture.
+2:00 Guest Galloway called a taxi
+3:00 Guest from room nr 1 ordered new furniture.
+6:00 Guest from room nr 5 ordered new furniture.
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+11:00 Guest from room nr 12 ordered new furniture.
+13:00 Guest Richards called a taxi
+13:00 Guest from room nr 12 ordered new furniture.
+13:00 Guest from room nr 3 ordered new furniture.
+18:00 Bernadette Rasberry registered
+19:00 Guest from room nr 4 ordered new furniture.
+19:00 Guest Greening called a taxi
+21:00 Guest Campos called a taxi
+22:00 Guest Korhonen called a taxi
+23:00 Guest from room nr 7 ordered new furniture.
+Day 14:
+0:00: Annabelle Southard registered
+1:00 Guest from room nr 4 ordered new furniture.
+1:00 Guest Boyter called a taxi
+2:00 Guest Ho called a taxi
+3:00 Lean Bickham registered
+4:00 Guest Bascombe called a taxi
+6:00 Clean all rooms by Giuseppina Ricco
+6:00 Clean all rooms by Giovanni Pitzer
+7:00 Guest Boyter called a taxi
+7:00 Guest Dinan called a taxi
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+9:00 Alfreda Mohr registered
+10:00 Guest from room nr 0 ordered new furniture.
+11:00 Guest from room nr 14 ordered new furniture.
+13:00 Guest from room nr 12 ordered new furniture.
+17:00 Guest from room nr 15 ordered new furniture.
+18:00 Get paycheck by Andrea Bascombe
+18:00 Get paycheck by Mimi Greening
+20:00 Guest from room nr 9 ordered new furniture.
+22:00 Terrance Ells registered
+23:00 Guest from room nr 6 ordered new furniture.
+Day 15:
+0:00: Lynwood Tomblin registered
+1:00 Tania Stockman registered
+4:00 Guest Fernandez called a taxi
+7:00 Jutta Applegate registered
+7:30 Check freshness of food by Alecia Roudebush
+7:30 Check freshness of food by Pete Tackitt
+7:30 Clean tables by Ben Strain
+7:30 Clean tables by Armando Lovett
+9:00 Israel Blakley registered
+10:00 Ingeborg Peru registered
+10:00 Roselee Rees registered
+12:00 Guest from room nr 6 ordered new furniture.
+14:00 Guest Corp called a taxi
+14:00 Guest Ribble called a taxi
+15:00 Kelli Wentz registered
+15:00 Kermit Matus registered
+17:00 Guest Whitney called a taxi
+18:00 Guest Richards called a taxi
+20:00 Guest from room nr 9 ordered new furniture.
+22:00 Guest  called a taxi

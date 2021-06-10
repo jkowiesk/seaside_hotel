@@ -10,6 +10,7 @@ protected:
     int quantity;
 public:
     Equipment() {}
+    Equipment(std::string n) : name(n) {}
     Equipment(std::string n, int q) : name(n), quantity(q) {}
 
     friend

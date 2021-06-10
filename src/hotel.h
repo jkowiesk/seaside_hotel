@@ -3,25 +3,38 @@
 #include "hotel_room.h"
 #include "hotel_guest.h"
 #include "hotel_worker.h"
+#include "hotel_workers.h"
 #include <vector>
+#include <string>
+#include <utility>
 
 
 class Hotel
 {
     int income;
     int cost;
+    int indexGuests = 0;
 public:
+    int getGuestsIndex() {return indexGuests;}
+    std::map<int, HotelWorker> hotelWorkers;
+    std::map<int, Guest> guests;
     std::vector<HotelRoom> availableRooms;
-    //std::vector<HotelWorker> workers;
     Hotel() {}
-    Hotel(int n) { createRooms(n);}
-    void createRooms(int hotelSize);
-    int addGuests(int guestsNumber);
-    bool guestCheckOut() {return true;}
+    void createRooms(std::vector<int> rooms);
+    void hireWorkers(std::vector<std::pair<std::string, std::string>> names);
+    void addGuest(Guest guest, int visitLength);
+    void checkVisitTimes();
+    int getNumberOfGuests();
     void charge(int value) {income+=value;}
     void pay(int value) {cost+=value;}
-    double calculateDailyCost(HotelRoom room);
     double calculateVisitCost(HotelRoom room, Guest guest);
-
+    int cleanRooms();
+    void guestOrdersEq(int roomId, Equipment eq);
+    void guestCallsTaxi(int guestId);
+    std::vector<std::pair<HotelWorker, DutyEntry>> getOnDuty(unsigned int hour, std::string day);
 };
 #endif
+    // for (const auto& kv : options) {
+    //     std::cout << kv.first << ") " << kv.second << std::endl;
+    // }
+    // map.insert({ 2, 30 });
