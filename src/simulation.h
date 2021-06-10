@@ -38,7 +38,6 @@ class Simulation {
     int numberOfDays;
     int numberOfRooms;
     int busyness;
-    int rand;
     std::vector<int> hours;
     const int numberOfActions = 5;
     Hotel hotel;

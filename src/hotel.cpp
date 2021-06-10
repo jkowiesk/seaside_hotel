@@ -91,7 +91,6 @@ int Hotel::cleanRooms() {
         }
     }
     return noCleaned;
-    // std::cout << noCleaned << " were cleaned." << std::endl;
 }
 
 void Hotel::guestOrdersEq(int roomId, Equipment eq) {

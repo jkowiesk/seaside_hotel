@@ -11,10 +11,10 @@
 
 class Hotel
 {
-    int income;
-    int cost;
     int indexGuests = 0;
 public:
+    int income = 0;
+    int cost = 0;
     int getGuestsIndex() {return indexGuests;}
     std::map<int, HotelWorker> hotelWorkers;
     std::map<int, Guest> guests;
